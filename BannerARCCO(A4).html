@@ -12,27 +12,12 @@
     
     <!-- Tailwind CSS para estilização rápida e responsiva -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        arcco: {
-                            lime: '#CCCD01', // Verde-Limão (Ajustado para RGB 204, 205, 1)
-                            gray: '#A6A6A6', // Cinza Concreto
-                            dark: '#1a1a1a'  // Preto/Cinza Escuro
-                        }
-                    },
-                    fontFamily: {
-                        montserrat: ['Montserrat', 'sans-serif'],
-                        opensans: ['Open Sans', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
     
     <style>
+        /* Configurações de Fonte Nativas (À prova de falhas) */
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .font-opensans { font-family: 'Open Sans', sans-serif; }
+
         /* Configurações rigorosas para simular e imprimir no tamanho A4 */
         @page {
             size: A4 portrait;
@@ -71,7 +56,7 @@
         }
     </style>
 </head>
-<body class="font-opensans text-arcco-dark">
+<body class="font-opensans text-[#1a1a1a]">
 
     <!-- Barra de Controles (Não sai na impressão) -->
     <div class="no-print w-full bg-gray-900 text-white p-4 flex flex-col items-center justify-center gap-3">
@@ -97,12 +82,12 @@
         <!-- Conteúdo Principal -->
         <div class="flex-grow flex flex-col justify-center text-center">
             
-            <h1 class="font-montserrat font-extrabold text-[42px] leading-[1.1] mb-8 text-arcco-dark uppercase tracking-tight">
+            <h1 class="font-montserrat font-extrabold text-[42px] leading-[1.1] mb-8 text-[#1a1a1a] uppercase tracking-tight">
                 Desculpe o transtorno,<br>
-                <span class="text-arcco-dark border-b-4 border-[#CCCD01]">estamos em obra!</span>
+                <span class="text-[#1a1a1a] border-b-4 border-[#CCCD01]">estamos em obra!</span>
             </h1>
 
-            <p class="text-[22px] leading-snug mb-6 font-semibold text-arcco-dark">
+            <p class="text-[22px] leading-snug mb-6 font-semibold text-[#1a1a1a]">
                 A equipe da <span class="font-montserrat font-extrabold">ARCCO</span> está por aqui trabalhando em um novo projeto.
             </p>
             
