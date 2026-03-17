@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banner ARCCO - A4</title>
+    
+    <!-- Importando as fontes da Identidade Visual da ARCCO -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS para estilização rápida e responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        arcco: {
+                            lime: '#CCCD01', // Verde-Limão (Ajustado para RGB 204, 205, 1)
+                            gray: '#A6A6A6', // Cinza Concreto
+                            dark: '#1a1a1a'  // Preto/Cinza Escuro
+                        }
+                    },
+                    fontFamily: {
+                        montserrat: ['Montserrat', 'sans-serif'],
+                        opensans: ['Open Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Configurações rigorosas para simular e imprimir no tamanho A4 */
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+        
+        body {
+            background-color: #e5e7eb; /* Fundo cinza ao redor da folha na tela */
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        .a4-page {
+            width: 210mm;
+            height: 297mm;
+            background-color: #ffffff;
+            margin: 20px auto;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        /* Esconde os botões e fundos extras na hora de imprimir */
+        @media print {
+            body { background-color: white; }
+            .a4-page {
+                margin: 0;
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                page-break-after: avoid;
+                page-break-before: avoid;
+            }
+            .no-print { display: none !important; }
+        }
+    </style>
+</head>
+<body class="font-opensans text-arcco-dark">
+
+    <!-- Barra de Controles (Não sai na impressão) -->
+    <div class="no-print w-full bg-gray-900 text-white p-4 flex flex-col items-center justify-center gap-3">
+        <div class="flex items-center gap-4">
+            <button onclick="window.print()" class="bg-[#CCCD01] hover:bg-[#b3b401] text-black font-montserrat font-bold py-2 px-6 rounded-lg transition-colors shadow-lg">
+                🖨️ Imprimir ou Salvar PDF
+            </button>
+        </div>
+        <p class="text-sm text-gray-300 font-opensans">
+            Na tela de impressão, certifique-se de que o tamanho do papel seja <b>A4</b> e marque a opção <b>"Sem margens"</b>.
+        </p>
+    </div>
+
+    <!-- FOLHA A4 -->
+    <div class="a4-page flex flex-col justify-between pt-16 pb-12 px-16 border-t-8 border-[#CCCD01]">
+        
+        <!-- Cabeçalho / Logo -->
+        <div class="flex justify-center mb-10 mt-4">
+            <!-- Tenta carregar a logo principal. Se falhar ou estiver com fundo ruim, carrega a alternativa -->
+            <img src="https://raw.githubusercontent.com/engarcco/Imagens/main/3%20ARCCO%20-%20LOGO%20TOPO%20SEM%20SLOGAN.png" alt="Logo ARCCO" class="h-28 object-contain">
+        </div>
+
+        <!-- Conteúdo Principal -->
+        <div class="flex-grow flex flex-col justify-center text-center">
+            
+            <h1 class="font-montserrat font-extrabold text-[42px] leading-[1.1] mb-8 text-arcco-dark uppercase tracking-tight">
+                Desculpe o transtorno,<br>
+                <span class="text-arcco-dark border-b-4 border-[#CCCD01]">estamos em obra!</span>
+            </h1>
+
+            <p class="text-[22px] leading-snug mb-6 font-semibold text-arcco-dark">
+                A equipe da <span class="font-montserrat font-extrabold">ARCCO</span> está por aqui trabalhando em um novo projeto.
+            </p>
+            
+            <p class="text-[19px] leading-relaxed text-gray-700 mb-10 max-w-xl mx-auto">
+                Sabemos que obras geram ruídos e poeira, mas estamos tomando todos os cuidados para que essa fase passe rápido e de forma organizada.
+            </p>
+
+            <!-- Box de Contato e QRCodes -->
+            <div class="mt-4 bg-gray-50 p-8 rounded-3xl border border-gray-100 shadow-sm relative">
+                
+                <p class="text-lg text-gray-700 mb-6 font-semibold">
+                    Acompanhe a obra ou fale conosco:
+                </p>
+
+                <div class="flex justify-center items-center gap-12">
+                    
+                    <!-- QR Code WhatsApp -->
+                    <div class="flex flex-col items-center">
+                        <img src="https://raw.githubusercontent.com/engarcco/Imagens/main/QRCode%20-%20Numero%20WhatsApp.jpg" alt="QR Code WhatsApp" class="h-[220px] w-auto object-contain">
+                    </div>
+
+                    <!-- Linha divisória -->
+                    <div class="h-32 w-px bg-gray-300"></div>
+
+                    <!-- QR Code Instagram -->
+                    <div class="flex flex-col items-center">
+                        <img src="https://raw.githubusercontent.com/engarcco/Imagens/main/QRCode%20-%20Instagram.jpg" alt="QR Code Instagram" class="h-[220px] w-auto object-contain">
+                    </div>
+                </div>
+
+                <!-- Contato Discreto -->
+                <div class="mt-8 pt-6 border-t border-gray-200">
+                    <p class="text-sm text-gray-500 font-opensans">
+                        Imprevistos ou emergências? <br>
+                        <span class="font-montserrat font-bold text-gray-700">Andrés Greco</span> &nbsp;|&nbsp; (31) 98878-9037
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Rodapé Minimalista -->
+        <div class="mt-12 flex justify-center items-center gap-3">
+            <div class="h-2 w-2 rounded-full bg-[#CCCD01]"></div>
+            <p class="font-montserrat font-bold tracking-widest text-sm text-gray-400 uppercase">Forma . Função . Futuro</p>
+            <div class="h-2 w-2 rounded-full bg-[#CCCD01]"></div>
+        </div>
+        
+    </div>
+
+</body>
+</html>
